@@ -38,5 +38,3 @@ const markup = images
     </li>`)
     .join("");
 gallery.insertAdjacentHTML("afterbegin", markup);
-
-// console.log(gallery);
