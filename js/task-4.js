@@ -15,7 +15,7 @@ function handleLogin(event) {
     }
     
     if (email === "" || password === "") {
-    return console.log('All form fields must be filled in');
+    alert('All form fields must be filled in');
     } else {
         formInfo.email = email.trim();
         formInfo.password = password.trim()
