@@ -1,13 +1,25 @@
 'use strict';
 
-const loginForm = document.querySelector("form");
-console.dir(loginForm);
-const btn = document.querySelector("button")
-console.dir(btn);
+const loginForm = document.querySelector(".login-form");
 
 loginForm.addEventListener("submit", handleLogin); 
 
 function handleLogin(event) {
     event.preventDefault();
 
+    const email = event.target.elements.email.value;
+    const password = event.target.elements.password.value;
+    const formInfo = {
+        email,
+        password,
+    }
+    
+    if (email === "" || password === "") {
+    return console.log('All form fields must be filled in');
+    } else {
+        formInfo.email = email.trim();
+        formInfo.password = password.trim()
+    }
+    console.log(formInfo);
+    loginForm.reset();
 };
