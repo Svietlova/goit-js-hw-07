@@ -1,0 +1,7 @@
+#categories {
+    display: flex;
+    flex-direction: column;
+    margin: 30 30 30 30;
+
+    list-style: none;
+}

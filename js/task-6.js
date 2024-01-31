@@ -23,6 +23,7 @@ btnCreate.addEventListener('click', () => {
 
 function createBoxes(amount) {
   let size = 30;
+  container.innerHTML = '';
   
   for (let i = 0; i < amount; i++) {
     const box = document.createElement('div');
@@ -33,7 +34,7 @@ function createBoxes(amount) {
     box.style.backgroundColor = getRandomHexColor();
     container.appendChild(box);
     size += 10;
-  }
+  };
 };
 
 btnDestroy.addEventListener('click', () => {
