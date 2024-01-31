@@ -30,11 +30,11 @@ const images = [
   },
 ];
 
-const gallery = document.querySelector(".gallery");
+const gallery = document.querySelector('.gallery');
 const markup = images
   .map(({ url, alt }) =>
     `<li class="gallery-item">
       <img src="${url}" alt="${alt}" width="400px" class="gallery-img"/>
     </li>`)
     .join("");
-gallery.insertAdjacentHTML("afterbegin", markup);
+gallery.insertAdjacentHTML('beforeend', markup);

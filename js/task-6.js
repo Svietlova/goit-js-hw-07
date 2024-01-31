@@ -6,25 +6,36 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-const btnCreate = document.querySelector('button[data-create]');
-const btnDestroy = document.querySelector('button[data-destroy]');
+const input = document.querySelector('input');
+const btnCreate = document.querySelector('[data-create]');
+const btnDestroy = document.querySelector('[data-destroy]');
 const container = document.querySelector('#boxes');
-const inputNumber = document.getElementsByTagName('input');
-
-function createBoxes(amount) {
-  let sizeStart = 30;
-  let divArr = [];
-  for (let i = 0; i < amount; i++) {
-    const div = `<div class="box" style="display: block; margin-right: 30px; margin-bottom: 30px; background-color: ${getRandomHexColor()}; width: ${sizeStart}px; height: ${sizeStart}px;"></div>`;
-    divArr.push(div);
-    sizeStart += 10;
-  };
-  container.insertAdjacentHTML('beforeend', divArr);
-};
 
 btnCreate.addEventListener('click', () => {
-  if (Number(inputNumber.value) > 100) {
+  const amount = Number(input.value);
+  
+  if (amount >= 1 && amount <= 100) {
+    createBoxes(amount);
+  } else {
     alert('Please, enter a number from 1 to 100 :)');
-  };
-    createBoxes(Number(inputNumber.value));
+  }
+});
+
+function createBoxes(amount) {
+  let size = 30;
+  
+  for (let i = 0; i < amount; i++) {
+    const box = document.createElement('div');
+    box.style.width = `${size}px`;
+    box.style.height = `${size}px`;
+    box.style.marginRight = '15px';
+    box.style.marginBottom = '15px';
+    box.style.backgroundColor = getRandomHexColor();
+    container.appendChild(box);
+    size += 10;
+  }
+};
+
+btnDestroy.addEventListener('click', () => {
+  container.innerHTML = '';
 });
