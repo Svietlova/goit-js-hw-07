@@ -1,5 +1,3 @@
-'use strict';
-
 const categories = document.getElementsByClassName('item');
 console.dir(`Numbers of categories: ${categories.length}`);
 
